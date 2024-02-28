@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import Iphone_pro_max from "./Iphone_pro_max/Iphone_pro_max"
+import Iphone_pro from "./Iphone_pro/Iphone_pro"
 import './App.css';
+import { useState } from "react";
 
 function App() {
+
+const [expandall,setExpandall]=useState(false)
+
+const handleexpand=()=>{
+  setExpandall(!expandall)
+}
+
   return (
+    <div className="mainapp_div">
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <p onClick={handleexpand}>Expand all</p>
+ <Iphone_pro_max expandall={expandall} setExpandall={setExpandall} />
+ <Iphone_pro expandall={expandall} />
+    </div>
     </div>
   );
 }
